@@ -1,8 +1,24 @@
 spring:
-  #  datasource config
+  application:
+    name: user-center
+  #  DataSource Config
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/datacenter
     username: root
     password: 123456
+    #session失效时间
+server:
+  port: 8088
+  servlet:
+    context-path: /api
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: isDelete  #全局逻辑删除的实体字段名（since3.3.0,配置后可以不配置步骤2）
+      logic-delete-value: 1 #逻辑已删除值（默认为1）
+      logic-not-delete-value: 0 #逻辑未删除值（默认为0）
+  configuration:
+    map-underscore-to-camel-case: false
+
 
